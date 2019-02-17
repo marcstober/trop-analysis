@@ -1,6 +1,7 @@
 var dataFile = "tropstrings.json";
 var tanakhparts = "torah";
 
+// parse querystring
 // https://stackoverflow.com/a/3855394
 var qs = (function(a) {
     if (a == "") return {};
@@ -16,6 +17,7 @@ var qs = (function(a) {
     return b;
 })(window.location.search.substr(1).split('&'));
 
+// is this a request for shirshirim? (otherwise, Torah)
 if(qs["book"] == "shirhashirim") {
     dataFile = "tropstrings-shirhashirim.json";
     tanakhparts = "shirhashirim";
@@ -78,6 +80,7 @@ var probformat = d3.format(".1%");
 var countformat = d3.format(",");
 
 // d3.json("sequencetree-d3format.json", function(root) {
+// TODO? Jacobson names (reviA, siluq)
 var tropnames = d3.map([{"char": "\u0597", "name": "revii", "heb": "רְבִיעִ֗י"}, {"char": "\u059d", "name": "gereshmukdam"}, {"char": "\u05a6", "name": "merkhakfula", "heb": "מֵרְכָא־כְפוּלָ֦ה"}, {"char": "\u059e", "name": "gershayim", "heb": "גֵּרְשַׁ֞יִם"}, {"char": "\u059b", "name": "tevir", "heb": "תְּבִ֛יר"}, {"char": "\u059f", "name": "karnepara", "heb": "קַרְנֵי פָרָ֟ה"}, {"char": "\u0595", "name": "gadol", "heb": "גָּד֕וֹל"}, {"char": "\u05a0", "name": "telishagedola", "heb": "תְּ֠לִישָא גְדוֹלָה"}, {"char": "\u0599", "name": "pashta", "heb": "פַּשְׁטָא֙"}, {"char": "\u0593", "name": "shalshelet", "heb": "שַׁלְשֶׁ֓לֶת"}, {"char": "\u0596", "name": "tipkha", "heb": "טִפְּחָ֖א"}, {"char": "\u059a", "name": "yetiv", "heb": "יְ֚תִיב"}, {"char": "\u0592", "name": "segol", "heb": "סֶגוֹל֒"}, {"char": "\u05aa", "name": "yerakhbenyomo", "heb": "יֵרֶח בֶּן יוֹמ֪וֹ"}, {"char": "\u05ae", "name": "zarka", "heb": "זַרְקָא֮"}, {"char": "\u05a3", "name": "munakh", "heb": "מֻנַּ֣ח"}, {"char": "\u05a5", "name": "merkha", "heb": "מֵרְכָ֥א"}, {"char": "\u05a8", "name": "kadma", "heb": "קַדְמָ֨א"}, {"char": "\u0591", "name": "etnakhta", "heb": "אֶתְנַחְתָּ֑א"}, {"char": "\u05c3", "name": "sofpasuk", "heb": "סוֹף פָּסוּק׃"}, {"char": "\u0598", "name": "tsinnorit", "heb": "צִנּוֹרִת֘"}, {"char": "\u059c", "name": "geresh", "heb": "גֵּ֜רֵשׁ"}, {"char": "\u05a9", "name": "telishaketana", "heb": "תְּלִישָא קְטַנָּה֩"}, {"char": "\u05a7", "name": "darga", "heb": "דַּרְגָּ֧א"}, {"char": "\u05a1", "name": "pazer", "heb": "פָּזֵ֡ר"}, {"char": "\u05a4", "name": "mapakh", "heb": "מַהְפַּ֤ך"}, {"char": "\u0594", "name": "katan", "heb": "קָטָ֔ן"}], function(t) { return t.name });
 // var treePreD3 = [];
 
